@@ -1,21 +1,17 @@
 package Affichage;
 
-
-
 import java.sql.*;
-
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
-import connect.connection;
+import connect.Conn;
 public class listcours extends javax.swing.JFrame{
 	
 	private JButton bfer;
 
 	Statement stListe;
-	connection maconnexion = new connection();
+	Conn maconnexion = new Conn();
 	 
 	    public listcours() {
 	        initComponents();
@@ -42,9 +38,7 @@ public class listcours extends javax.swing.JFrame{
 	        bfer.setBounds(75,150,100,30);
 	        
 	        
-	    }
-	    @SuppressWarnings("unchecked")
-	    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+	    }                       
 	    private void initComponents() {
 
 	        jLabel1 = new javax.swing.JLabel();
@@ -98,7 +92,7 @@ public class listcours extends javax.swing.JFrame{
 	       
 	        pack();
 	      
-	    }// </editor-fold>                        
+	    }                       
 	 
 	    /**
 	     * @param args the command line arguments

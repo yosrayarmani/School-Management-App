@@ -1,16 +1,12 @@
 package Affichage;
 
-
-
 import java.awt.Font;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.swing.GroupLayout;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -21,12 +17,10 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
-import connect.connection;
+import connect.Conn;
 public class listEleve extends javax.swing.JFrame{
-	private JButton bfer;
-	
 	Statement stListe;
-	connection maconnexion = new connection();
+	Conn maconnexion = new Conn();
 	 
 	    public listEleve() {
 	    	 this.setLocation(500, 200);
@@ -50,15 +44,8 @@ public class listEleve extends javax.swing.JFrame{
 	        }catch(SQLException ex){
 	            System.out.println(ex);
 	        }
-	      
-	            
-	     
-	        
 	    }
 
-	    
-	    @SuppressWarnings("unchecked")   
-	    
 	    private void initComponents() {
 
 	        jLabel1 = new JLabel();
@@ -133,13 +120,10 @@ public class listEleve extends javax.swing.JFrame{
 	            Logger.getLogger(listEleve.class.getName()).log(Level.SEVERE, null, ex);
 	        }}
 	        
-	    
-	    // Variables declaration - do not modify                     
+	                        
 	    private JScrollPane TABLE;
 	    private JTable TABLEPRO;
-	    private JLabel jLabel1;
-	   
-	    // End of variables declaration                   
+	    private JLabel jLabel1;             
 	}
 
 

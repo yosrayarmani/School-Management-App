@@ -1,7 +1,6 @@
 package Gestion;
 
 import java.awt.Color;
-
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -9,8 +8,6 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -19,14 +16,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import connect.connection;
+import connect.Conn;
 
 public class ges_charge extends JFrame implements ActionListener{
 	
 	private JTextField txttl,txtrec;
-	private JLabel lbnump,lbnumc,lbtl;
+	private JLabel lbtl;
 	private JButton bten,ann,ter;
+	@SuppressWarnings("rawtypes")
 	private JComboBox cmbonump=new JComboBox();
+	@SuppressWarnings("rawtypes")
 	private JComboBox cmbonumc=new JComboBox();
 	Statement st;
 	private JButton lbrec;
@@ -34,7 +33,7 @@ public class ges_charge extends JFrame implements ActionListener{
 	private String req2E = " select DISTINCT prof_id from professeur";
 	
 	
-	connection k=new connection();
+	Conn k=new Conn();
 	
 	public ges_charge()
 	{ 
@@ -100,11 +99,12 @@ public class ges_charge extends JFrame implements ActionListener{
 	
 	
 	//recherche de numero cours dans le combo
+	@SuppressWarnings("unchecked")
 	private void initCombo(){
 		 
 		 
 			 Statement state;ResultSet res;
-			 connection kk=new connection();
+			 Conn kk=new Conn();
 			 
 			try {
 				state=kk.etablirconnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -134,7 +134,7 @@ public class ges_charge extends JFrame implements ActionListener{
 				}res.close();state.close();
 				
 			} catch (SQLException e1) {
-				e1.printStackTrace();
+				e1.printStackTrace();}
 			}
 
 @Override
@@ -144,7 +144,7 @@ ResultSet rst1;
 	    
 	if(a.getSource()==bten)
 	{
-		String n,ppr,t;
+		String t;
 	   String cc=(String) cmbonump.getSelectedItem();
 	   String cc3=(String) cmbonumc.getSelectedItem();
        t=txttl.getText(); 
@@ -158,10 +158,8 @@ ResultSet rst1;
 			 if(JOptionPane.showConfirmDialog(this, "Voulez vraiment Modifiez ? ",null, JOptionPane.OK_OPTION)==JOptionPane.OK_OPTION)
 			 {
 			    st.executeUpdate(query);
-			    JOptionPane.showMessageDialog(this,"Modification effectuez avec succès");
+			    JOptionPane.showMessageDialog(this,"Modification effectuez avec succï¿½s");
 			 } 
-			 else if (JOptionPane.OK_CANCEL_OPTION==JOptionPane.NO_OPTION){ 
-				}
 		}
 		 catch (SQLException e2) {
 			   JOptionPane.showMessageDialog(null, "Erreur de Modification verifiez le lien ou n'existe pas");
@@ -195,7 +193,7 @@ ResultSet rst1;
 			st.executeUpdate(req);
 		
 			
-		    JOptionPane.showMessageDialog(this,"Suppression effectuez avec succès");
+		    JOptionPane.showMessageDialog(this,"Suppression effectuez avec succï¿½s");
 		}
 		
 		 

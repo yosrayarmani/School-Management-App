@@ -8,8 +8,6 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,23 +15,14 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-
-
-
-
-import java.sql.Date;
-
-import connect.connection;
+import connect.Conn;
 
 public class ges_cours extends JFrame implements ActionListener {
 	
 	JTextField txtnom_crs,txtHB_crs,txtdann,txtnum_crs,txtrec;
 	JButton btModif,supp,rech,fer,ann;
 	Statement st;
-	private javax.swing.JFormattedTextField daten =new javax.swing.JFormattedTextField(DateFormat.getDateInstance());
-	
-	connection k=new connection();
+	Conn k=new Conn();
 	
 	public ges_cours()
 	{ 
@@ -168,10 +157,8 @@ public class ges_cours extends JFrame implements ActionListener {
 			 if(JOptionPane.showConfirmDialog(this, "Voulez vraiment supprimez ",null, JOptionPane.OK_OPTION)==JOptionPane.OK_OPTION)
 			 {
 			    st.executeUpdate(query);
-			    JOptionPane.showMessageDialog(this,"Suppression effectuez avec succès");
+			    JOptionPane.showMessageDialog(this,"Suppression effectuez avec succï¿½s");
 			 } 
-			 else if (JOptionPane.OK_CANCEL_OPTION==JOptionPane.NO_OPTION){ 
-				}
 				
 			 }
 			   
@@ -188,7 +175,7 @@ public class ges_cours extends JFrame implements ActionListener {
 		//Modification
 		if(e.getSource()==btModif)
 		{
-			String n,p,a,pr;
+			String n,p,pr;
 			
 			n=txtnum_crs.getText(); 
 			p=txtnom_crs.getText();
@@ -205,10 +192,8 @@ public class ges_cours extends JFrame implements ActionListener {
 				 if(JOptionPane.showConfirmDialog(this, "Voulez vraiment Modifiez ? ",null, JOptionPane.OK_OPTION)==JOptionPane.OK_OPTION)
 				 {
 				    st.executeUpdate(query);
-				    JOptionPane.showMessageDialog(this,"Modification effectuez avec succès");
+				    JOptionPane.showMessageDialog(this,"Modification effectuez avec succï¿½s");
 				 } 
-				 else if (JOptionPane.OK_CANCEL_OPTION==JOptionPane.NO_OPTION){ 
-					}
 			}
 			 catch (SQLException e2) {
 				   JOptionPane.showMessageDialog(null, "Erreur de suppresion verifiez le lien ou n'existe pas");

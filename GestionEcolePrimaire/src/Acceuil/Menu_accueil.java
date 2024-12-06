@@ -1,12 +1,11 @@
 package Acceuil;
-import java.awt.BorderLayout;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,40 +13,34 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
-
 import Affichage.listEleve;
 import Affichage.listcharge;
 import Affichage.listcours;
 import Affichage.listprofesseurs;
 import Gestion.ges_charge;
 import Gestion.ges_cours;
-import Gestion.ges_eleve;
-import Gestion.ges_prof;
-import frame.Fen_ajout_Elève;
-import frame.Fen_ajout_Professeurs;
+import Gestion.Gestion_Eleve;
+import Gestion.Gestion_Prof;
+import frame.Ajout_Eleve;
+import frame.Ajout_Professeur;
 import frame.Fen_ajout_cours;
 import frame.Jlabel;
 import frame.fen_charge;
 
-
-
-
 public class Menu_accueil extends JFrame implements ActionListener{
 	
-	private JMenuItem list_charge,listeleves,list_cours,list_prof,quite,listresult,user,addprof,addcours,addeleve, app1;
-	private JMenuBar menu;
+	private JMenuItem listeleves,list_prof,quite,addprof,addcours,addeleve, app1;
 	private JMenu Fich, app;
 	private JPanel img,img2;
 	private JToolBar menubar ;
 	private JLabel ne;
 	
-      private JButton listelevebutton = new JButton("   Liste des elèves          ");
+      private JButton listelevebutton = new JButton("   Liste des elï¿½ves          ");
 	  private JButton listcoursbutton = new JButton("   Liste des cours          ");
 	  private JButton listprofbutton = new  JButton("   Liste des professeurs");
 	  private JButton listresultsbutton = new JButton("Les resultats         ");
@@ -68,27 +61,18 @@ public class Menu_accueil extends JFrame implements ActionListener{
 	  
 	  Container c=getContentPane();
 	
-	 private String requete01 = "SELECT COLUMN_NAME as 'NOM de colonne', DATA_TYPE as 'TYPE', CHARACTER_MAXIMUM_LENGTH as 'TAILLE' FROM information_schema.COLUMNS WHERE table_name = 'eleves'";
 	
-//------------------------------------------------------------------------------
 	 public <split, split1> Menu_accueil(){ 
-		
 		 JSplitPane split;		JSplitPane split1;
-		 
-		 
 		 ne =  new JLabel();		ne.setIcon(new ImageIcon(""));		ne.setPreferredSize(new Dimension(800,400));
 		 
 		this.setTitle("HOME PAGE");		this.setSize(900,700);		this.setLocation(250,50);
-		  
-	      
-	     
 	    listelevebutton.addActionListener(this);   listelevebutton.setIcon(new ImageIcon("C:\\Users\\yossra\\Desktop\\images\\list.png"));
 	    listchargebutton.addActionListener(this);  listchargebutton.setIcon(new ImageIcon("C:\\Users\\yossra\\Desktop\\images\\list.png"));
 	    listcoursbutton.addActionListener(this);   listcoursbutton.setIcon(new ImageIcon("C:\\Users\\yossra\\Desktop\\images\\list.png"));
 	    listprofbutton.addActionListener(this);    listprofbutton.setIcon(new ImageIcon("C:\\Users\\yossra\\Desktop\\images\\list.png"));
 	    listresultsbutton.addActionListener(this); listresultsbutton.setIcon(new ImageIcon("C:\\Users\\yossra\\Desktop\\images\\list.png"));
 	  
-	    JLabel txt=new JLabel("BIENVENUE");
 	      
 	    JMenuBar menu=new JMenuBar();
 	    setJMenuBar(menu);
@@ -96,7 +80,6 @@ public class Menu_accueil extends JFrame implements ActionListener{
 //----------------- MENU AJOUTER ----------------------------
 	    Fich=new JMenu("Ajouter");		Fich.setMnemonic('A'); 	menu.add(Fich);		 Fich.setIcon(new ImageIcon("C:\\Users\\yossra\\Desktop\\images\\fichier1.png"));
 	   
-	    
 	    img=new JPanel(); 
 	    img.add(ne); 
 	    
@@ -104,7 +87,6 @@ public class Menu_accueil extends JFrame implements ActionListener{
 	    fond_img.setIcon(new ImageIcon("C:\\Users\\yossra\\Desktop\\images\\blue1.jpg"));
 	    fond_img.setSize(700, 900);
 	 
-	    //ONGLET
 	    re.setBounds(5, 20,218, 800);		re.setLayout(new BorderLayout());		re.add(onglet);
 	    
 	    onglet.setSize(400, 830);		onglet.setBorder(null);		onglet.setBackground(Color.blue);
@@ -128,26 +110,18 @@ public class Menu_accueil extends JFrame implements ActionListener{
 	     
 		 onglet.add("Gestion",gestionarea);
 	     gestionarea.setBackground(Color.gray);
-		 
-		
-		
-		
+
 			split = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JScrollPane(null), null);
 		    split.setDividerLocation(100);
 		    split.setDividerSize(2);
 		    split1 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, re, split);
 		    split1.setDividerLocation(220);
 		    split1.setDividerSize(2);
-		  
-
 		 
 	    img.setBounds(210,100,1400,625);
 	    img.setBackground(Color.white);
 	    
 	     img.setLayout(new BorderLayout());
-	      
-	      
-	    
 	    img2=new JPanel(); 
 	    img2.setLayout(null);
 	    
@@ -168,7 +142,7 @@ public class Menu_accueil extends JFrame implements ActionListener{
 	    
 //-------------------------- AJOUT ------------------------------------------
 	    
-	    addeleve=new JMenuItem(" Elève");  addeleve.setIcon(new ImageIcon("elv.png"));
+	    addeleve=new JMenuItem(" Elï¿½ve");  addeleve.setIcon(new ImageIcon("elv.png"));
 	    ajout.add(addeleve);
 	    addeleve.setMnemonic('e');
 	   
@@ -186,9 +160,6 @@ public class Menu_accueil extends JFrame implements ActionListener{
 	    ajout.add(nvrlt);  nvrlt.setMnemonic('r');
 	     
 	    JMenuItem crep=new JMenuItem("Cours enseigner/prof "); 	ajout.add(crep);	crep.setMnemonic('C');
-	    
-	     
-
 	    JPanel i=new JPanel(); 
 	    i.setLayout(null);
 
@@ -222,7 +193,6 @@ public class Menu_accueil extends JFrame implements ActionListener{
 
 		 app1=new JMenuItem("About");		app.add(app1);  app1.setMnemonic('A'); 		app1.addActionListener(this);
 		 
-//+++++++++++++++++++++++++++++++++++++++++++
 	    i.add(re); 
 	    img.add(fond_img); 
 	    i.add(menubar);
@@ -255,7 +225,6 @@ public class Menu_accueil extends JFrame implements ActionListener{
 	    	
 	    });
 	    
-//**********************************************************************
 	    crep.addActionListener(new ActionListener()
 	    {
 
@@ -282,7 +251,7 @@ public class Menu_accueil extends JFrame implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				
-				Fen_ajout_Professeurs pr=new Fen_ajout_Professeurs();
+				Ajout_Professeur pr=new Ajout_Professeur();
 				pr.setVisible(true);
 				pr.setResizable(false);
 			}
@@ -306,7 +275,7 @@ public class Menu_accueil extends JFrame implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			Fen_ajout_Elève fe=new Fen_ajout_Elève();
+			Ajout_Eleve fe=new Ajout_Eleve();
 			fe.setVisible(true);
 			fe.setResizable(false);
 		}
@@ -347,13 +316,13 @@ public void actionPerformed(ActionEvent e) {
 //**************************************************************
   if(e.getSource()==gestioneleve)
   {  
-	   ges_eleve ge=new ges_eleve();
+	   Gestion_Eleve ge=new Gestion_Eleve();
 	   ge.setVisible(true);  
 	}
   
   if(e.getSource()==gestionprof)
   {  
-	   ges_prof gp=new ges_prof();
+	   Gestion_Prof gp=new Gestion_Prof();
 	   gp.setVisible(true);  
 	   gp.setResizable(false);
 	}
@@ -373,9 +342,6 @@ public void actionPerformed(ActionEvent e) {
 	}
   
 	  }
-
-  
-
 public static void main(String[] args)
  {
 	
@@ -386,8 +352,6 @@ public static void main(String[] args)
 		
 
 	}
-
-	
 }
 
 

@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -18,22 +17,22 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import connect.connection;
+import connect.Conn;
 
 public class fen_charge extends JFrame implements ActionListener{
 	
 	private JTextField txttl;
-	private JLabel profid,coursid;
 	private JButton bten,ann;
+	@SuppressWarnings("rawtypes")
 	private JComboBox cmbonump=new JComboBox();
+	@SuppressWarnings("rawtypes")
 	private JComboBox cmbonumc=new JComboBox();
 	Statement st;
-	private JButton lbrec;
 	private String req1C = " select DISTINCT mat_id from  matiere";
 	private String req2E = " select DISTINCT prof_id from professeur";
 	
 	
-	connection k=new connection();
+	Conn k=new Conn();
 	
 	public fen_charge()
 	{ 
@@ -132,11 +131,12 @@ public class fen_charge extends JFrame implements ActionListener{
 	
 	
 	//recherche de numero cours dans le combo
+	@SuppressWarnings("unchecked")
 	private void initCombo(){
 		 
 		 
 			 Statement state;ResultSet res;
-			 connection kk=new connection();
+			 Conn kk=new Conn();
 			 
 			try {
 				state=kk.etablirconnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -199,7 +199,7 @@ public void actionPerformed(ActionEvent a) {
 	  Statement state = null;
 		try {
 			
-			 connection kk=new connection();
+			 Conn kk=new Conn();
 			 
 	state=kk.etablirconnection().createStatement();
 				
@@ -207,7 +207,7 @@ public void actionPerformed(ActionEvent a) {
 		  if(res!=0){
 			 //state.execute(requete);
 				
-				JOptionPane.showMessageDialog(null, "Eneregistrement ajouté avec succès", "info", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Eneregistrement ajoutï¿½ avec succï¿½s", "info", JOptionPane.INFORMATION_MESSAGE);
 				
 				   txttl.setText("");
 		  }
