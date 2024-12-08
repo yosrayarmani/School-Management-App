@@ -141,10 +141,10 @@ SELECT pg_catalog.setval('classe_cls_id_seq', 12, true);
 --
 
 CREATE TABLE eleve (
-    elv_id integer NOT NULL,
+    elv_id integer,
     elv_nom character varying(64) NOT NULL,
     elv_prenom character varying(64) NOT NULL,
-    elv_cls_k bigint NOT NULL
+    elv_cls_k bigint 
 );
 
 
@@ -354,7 +354,7 @@ SELECT pg_catalog.setval('matiere_mat_id_seq', 6, true);
 --
 
 CREATE TABLE professeur (
-    prof_id integer NOT NULL,
+    prof_id integer,
     prof_nom character varying(64) NOT NULL,
     prof_prenom character varying(64) NOT NULL
 );

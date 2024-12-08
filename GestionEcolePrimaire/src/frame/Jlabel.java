@@ -5,35 +5,44 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 public class Jlabel extends JFrame {
 
-	public Jlabel()
-	{    this.setResizable(false);
-		 this.setTitle("ABOUT");
-		 this.setSize(400,300);
-		 JPanel p=new JPanel();
-		  
-		  p.setLayout(null);
-	
-		 
-		  Font fer = new Font("BOLD",0, 16);
-		  
-		  this.setLocation(500, 200);
-		  this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-         
-      JLabel ch1=new JLabel("Mini_Projet realisé par:"); ch1.setBounds(40, 10, 180,  20); p.add(ch1); ch1.setForeground(Color.black);
-	  JLabel ch2=new JLabel("  Yarmani Yosra  ");      ch2.setFont(fer); ch2.setBounds(40, 40, 400,  20);   p.add(ch2);
-	  JLabel ch3=new JLabel("Classe :   L2CS1  ");  ch3.setFont(fer);     ch3.setBounds(40, 60, 400,  20);   p.add(ch3);
-	 
-	  add(p);
-	  
+    public Jlabel() {
+        this.setResizable(false);
+        this.setTitle("ABOUT");
+        this.setSize(800, 300);
+        this.setLocation(500, 200);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        JPanel p = new JPanel();
+        p.setLayout(null);
+
+        JLabel ch1 = new JLabel("Project By: YARMANI Yosra");
+        ch1.setBounds(10, 10, 180, 20);
+        ch1.setForeground(Color.BLACK);
+        p.add(ch1);
+
+        JLabel ch3 = new JLabel("Group : L2 CS1");
+        ch3.setBounds(10, 30, 400, 20);
+        ch3.setForeground(Color.BLACK);
+        p.add(ch3);
+
+        JTextArea ch4 = new JTextArea(
+            "Desktop application designed to streamline administrative operations. Built using Java with a Swing GUI "
+            + "and integrated with a PostgreSQL database, this application provides a centralized platform to manage key aspects "
+            + "of school administration efficiently."
+        );
+        ch4.setFont(new Font("SansSerif", Font.PLAIN, 15));
+        ch4.setForeground(new Color(0, 0, 139));
+        ch4.setLineWrap(true);
+        ch4.setWrapStyleWord(true);
+        ch4.setEditable(false);
+        ch4.setOpaque(false);
+        ch4.setBounds(10, 70, 600, 120);
+        p.add(ch4);
+
+        add(p);
+    }
 }
-
-}
-
-
-
-
-
-
